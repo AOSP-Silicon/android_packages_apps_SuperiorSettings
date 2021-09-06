@@ -78,6 +78,7 @@
     <string name="statusbar_title">Status Bar</string>
     <string name="notifications_title">Notifications</string>
     <string name="statusbar_extras">Extras</string>
+    <string name="statusbar_padding">Statusbar Padding</string>
 
     <!--3-Finger screenshot-->
     <string name="three_finger_gesture">Three finger gesture</string>
@@ -412,4 +413,8 @@
     <!-- Disable QS -->
     <string name="disable_qs_title">Hide QS in secure lockscreen</string>
     <string name="disable_qs_summary">Hides QS if device is locked. Does not disable notification shade</string>
+
+    <!-- Statusbar left_right padding -->
+    <string name="statusbar_left_padding">Statusbar left padding</string>
+    <string name="statusbar_right_padding">Statusbar right padding</string>
 </resources>
