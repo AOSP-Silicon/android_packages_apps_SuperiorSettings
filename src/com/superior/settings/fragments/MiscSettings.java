@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import androidx.preference.SwitchPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -39,12 +40,22 @@ import com.android.settings.R;
 public class MiscSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_GAMES_SPOOF = "use_games_spoof";
+
+    private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
+
+    private SwitchPreference mGamesSpoof;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.superior_settings_misc);
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+    mGamesSpoof = (SwitchPreference) prefScreen.findPreference(KEY_GAMES_SPOOF);
+    mGamesSpoof.setChecked(SystemProperties.getBoolean(SYS_GAMES_SPOOF, false));
+    mGamesSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -63,6 +74,16 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mGamesSpoof) {
+            boolean value = (Boolean) newValue;
+            SystemProperties.set(SYS_GAMES_SPOOF, value ? "true" : "false");
+            return true;
+	}
         return false;
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        SystemProperties.set(SYS_GAMES_SPOOF, "false");
     }
 }

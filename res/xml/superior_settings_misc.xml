@@ -38,6 +38,12 @@
     <PreferenceCategory
        android:title="@string/extra_category">
 
+       <SwitchPreference
+           android:key="use_games_spoof"
+           android:title="@string/use_games_spoof_title"
+           android:summary="@string/use_games_spoof_summary"
+           android:defaultValue="false" />
+
        <com.superior.support.preferences.SystemSettingSwitchPreference
            android:key="wake_when_plugged_or_unplugged"
            android:title="@string/wake_when_plugged_or_unplugged_title"
