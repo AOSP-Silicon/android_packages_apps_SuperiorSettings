@@ -401,4 +401,7 @@
     <string name="qs_show_battery_estimate_summary_on">Show battery estimates in QS</string>
     <string name="qs_show_battery_estimate_summary_off">Hide battery estimates in QS</string>
 
+    <!-- QS Transparency -->
+    <string name="qs_transparency_title">QS Transparency</string>
+    <string name="qs_transparency_summary">Choose how transparent you want your QS Panel to be (Requires SystemUI)</string>
 </resources>
