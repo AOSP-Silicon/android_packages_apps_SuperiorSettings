@@ -188,6 +188,15 @@
             android:action="android.intent.action.VIEW"
             android:data="https://t.me/Joker_V2_0" />
     </Preference>
+    
+    <Preference
+        android:title="@string/device_vince"
+        android:summary="@string/device_vince_description"
+        android:icon="@drawable/ic_devs_phone">
+        <intent
+            android:action="android.intent.action.VIEW"
+	    android:data="https://t.me/GhostMaster69_dev" />
+    </Preference>
 </PreferenceCategory>
 
 </PreferenceScreen>
