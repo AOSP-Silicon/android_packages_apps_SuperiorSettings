@@ -40,7 +40,10 @@ import com.android.settings.R;
 public class QuickSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String KEY_SYS_INFO = "qs_system_info";
+
     private ListPreference mQuickPulldown;
+    private ListPreference mSystemInfo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,12 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         mQuickPulldown.setValue(String.valueOf(qpmode));
         mQuickPulldown.setSummary(mQuickPulldown.getEntry());
         mQuickPulldown.setOnPreferenceChangeListener(this);
+
+        mSystemInfo = (ListPreference) findPreference(KEY_SYS_INFO);
+	boolean mSystemInfoSupported = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_supportSystemInfo);
+        if (!mSystemInfoSupported)
+            prefScreen.removePreference(mSystemInfo);
     }
 
     @Override
